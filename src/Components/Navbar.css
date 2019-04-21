@@ -1,0 +1,22 @@
+.navbar {
+  width: 100%;
+  background-color: #21285c;
+}
+
+.navbar .navbar-brand {
+  color: white;
+}
+
+.navbar .nav-link {
+  color: white;
+}
+
+.nav-nav {
+  display: flex;
+  padding-left: 300;
+  margin-bottom: 0;
+}
+
+.navbar .Logo {
+  width: 73%;
+}

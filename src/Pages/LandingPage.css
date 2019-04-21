@@ -1,0 +1,21 @@
+.welcomeBanner {
+	padding: 10px 20px;
+  background-color: #00274c;
+  text-align: center;
+  color: white;
+  font-size: 50px;
+  box-sizing: border-box;
+}
+
+.PLogo {
+  right: 500px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px;
+  border-radius: 70px;
+  margin-top: 3em;
+  margin-bottom: 3em;
+  box-shadow: 0px 0px 5px #555;
+  background-color: #ffffff;
+}
