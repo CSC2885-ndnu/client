@@ -25,27 +25,46 @@ class Register extends Component {
     super(props);
 
     this.state = {
-      ndnuId: null,
+      firstName: null,
+      lastName: null,
+      studentID: null,
       email: null,
       password: null,
+      avatar: null,
       formErrors: {
-        ndnuId: "",
-        email: "",
-        password: ""
+        firstName: "",
+      lastName: "",
+      studentID: "",
+      email: "",
+      password: "",
+      avatar: "",
       }
     };
   }
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
 
     if (formValid(this.state)) {
-      console.log(`
-      --SUBMITTING--
-      NDNU ID: ${this.state.ndnuId}
-      Email: ${this.state.email}
-      Password: ${this.state.password}
-      `);
+      const fd = new FormData();
+      fd.append('firstName', this.state.firstName);
+      fd.append('lastName', this.state.lastName);
+      fd.append('studentID', this.state.studentID);
+      fd.append('email', this.state.email);
+      fd.append('password', this.state.password);
+      fd.append('avatar', this.state.avatar);
+
+      const searchParams = new URLSearchParams();
+      for (const pair of fd) {
+        searchParams.append(pair[0], pair[1]);
+      }
+
+      fetch("http://localhost:8080/seniorproject/addUser", {
+        body: searchParams,
+        method: "post"
+      });
+      
+
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
     }
@@ -86,18 +105,47 @@ class Register extends Component {
         <div className="Wrapper float-right">
           <div className="form-wrapper float-right">
             <h3>Register</h3>
+
             <form onSubmit={this.handleSubmit} noValidate>
-              <div className="ndnuId">
+            <div className="firstName">
                 <input
-                  className={formErrors.ndnuId.length > 0 ? "error" : null}
-                  placeholder="NDNU ID"
+                  className={formErrors.firstName.length > 0 ? "error" : null}
+                  placeholder="firstName"
                   type="text"
-                  name="ndnuId"
+                  name="firstName"
                   noValidate
                   onChange={this.handleChange}
                 />
-                {formErrors.ndnuId.length > 0 && (
-                  <span className="errorMessage">{formErrors.ndnuId}</span>
+                {formErrors.firstName.length > 0 && (
+                  <span className="errorMessage">{formErrors.firstName}</span>
+                )}
+              </div>
+
+              <div className="lastName">
+                <input
+                  className={formErrors.lastName.length > 0 ? "error" : null}
+                  placeholder="lastName"
+                  type="text"
+                  name="lastName"
+                  noValidate
+                  onChange={this.handleChange}
+                />
+                {formErrors.lastName.length > 0 && (
+                  <span className="errorMessage">{formErrors.lastName}</span>
+                )}
+              </div>
+             
+              <div className="studentID">
+                <input
+                  className={formErrors.studentID.length > 0 ? "error" : null}
+                  placeholder="student ID"
+                  type="text"
+                  name="studentID"
+                  noValidate
+                  onChange={this.handleChange}
+                />
+                {formErrors.studentID.length > 0 && (
+                  <span className="errorMessage">{formErrors.studentID}</span>
                 )}
               </div>
 
@@ -127,6 +175,20 @@ class Register extends Component {
                   <span className="errorMessage">{formErrors.password}</span>
                 )}
               </div>
+
+              <div className="avatar">
+                <input
+                  className={formErrors.avatar.length > 0 ? "error" : null}
+                  placeholder="Avatar"
+                  type="avatar"
+                  name="avatar"
+                  noValidate
+                  onChange={this.handleChange}
+                />
+                {formErrors.avatar.length > 0 && (
+                  <span className="errorMessage">{formErrors.avatar}</span>
+                )}
+              </div>
               <div className="FormField">
                 <label className="FormField__CheckboxLabel">
                   {" "}
@@ -151,6 +213,8 @@ class Register extends Component {
                 </Link>
               </div>
             </form>
+
+
           </div>
         </div>
       </div>
