@@ -6,8 +6,8 @@ import ClassList from "../Components/ClassList.js";
 export default class WelcomePage extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props.user.studentID);
-    console.log(this.props.user.studentID);
+    console.log(this.props.user);
+    console.log(this.props.user.user_id);
     console.log(this.props.isLoggedIn);
 
     this.state = {
@@ -16,8 +16,9 @@ export default class WelcomePage extends Component {
     };
   }
   componentDidMount() {
-    //http://localhost:8080/seniorproject/getUserCourses/1 fetch by studentID
-    fetch("https://api.myjson.com/bins/19wd0c")
+    
+    //fetch("http://localhost:8080/seniorproject/getUserCourses/" + this.props.user.user_id)
+    fetch("http://localhost:8080/seniorproject/getUserCourses/1")
       .then(data => data.json())
       .then(data => this.setState({ classData: data }));
   }
@@ -31,12 +32,12 @@ export default class WelcomePage extends Component {
               {this.state.classData.map(classes => {
                 return (
                   <ClassList
-                    key={classes.id}
-                    classId={classes.id}
-                    instructor={classes.instructor}
-                    classTitle={classes.classTitle}
+                    key={classes.course_id}
+                    classId={classes.course_id}
+                    instructor={classes.professor}
+                    classTitle={classes.courseName}
                     meetingDay={classes.meetingDay}
-                    classDescription={classes.classDescription}
+                    classDescription={classes.courseDescription}
                   />
                 );
               })}

@@ -46,6 +46,7 @@ submittingData() {
       return response.json();
     } else {
       alert("user name or password is wrong");
+      console.log(response.status);
       throw new Error(response.status);
     }
     

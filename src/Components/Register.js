@@ -49,6 +49,9 @@ class Register extends Component {
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
     }
+
+    
+    
   };
 
   handleChange = e => {

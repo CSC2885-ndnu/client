@@ -1,23 +1,19 @@
 import React, { Component } from "react";
 import Comment from "../Components/Comment.js";
+import CreateComment from "../Components/CreateComment.js";
 import "./ViewPost.css";
 
 class ViewPost extends Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      comment: this.props.comment,
-    };
-  }
-  
   render() {
+    //console.log(this.props.postData.commentList);
+    //console.log(this.state.comment);
     return (
       <div className="container">
-        <h1 className="titleFont">{this.props.course}</h1>
+        <h1 className="titleFont">{this.props.postData.course}</h1>
         <div className="postContainer">
-          <h1 className="titleFont">{this.props.title}</h1>
-          <p>{this.props.note}</p>
+          <h1 className="titleFont">{this.props.postData.title}</h1>
+          <p>{this.props.postData.note}</p>
           <p className="text-muted">
             Attactment
             <br />
@@ -25,29 +21,33 @@ class ViewPost extends Component {
           </p>
           <div className="row">
             <div className="col-sm-4 text-secondary">
-              Posted: {this.props.post_created_date}
+              Posted: {this.props.postData.post_created_date}
             </div>
             <div className="col-sm-4 text-secondary">
-              Author: {this.props.user}
+              Author: {this.props.postData.user}
             </div>
             <div className="col-sm-4 text-secondary">
-              Class Date: {this.props.class_date}
+              Class Date: {this.props.postData.class_date}
             </div>
           </div>
         </div>
-        {this.state.comment.map(comment => {
-          return (
-            <Comment
-              key={comment.id}
-              text={comment.text}
-              postDate={comment.postDate}
-              author={comment.author}
-            />
-          );
-        })}
+        <CreateComment />
+        <Comment commentList = {this.props.postData.commentList}/>
       </div>
     );
   }
 }
 
 export default ViewPost;
+
+// {this.props.postData.comment.map(comment => {
+//           return (
+//             <Comment
+//               key={comment.commentID}
+//               text={comment.text}
+//               postDate={comment.postDate}
+//               author={comment.author}
+//             />
+//           );
+//         })}
+

@@ -8,6 +8,7 @@ import ContactUsPage from "./Pages/ContactUsPage.js";
 import WelcomePage from "./Pages/WelcomePage.js";
 import ClassPage from "./Pages/ClassPage.js";
 import ViewPostPage from "./Pages/ViewPostPage.js";
+import CreatePostPage from "./Pages/CreatePostPage.js";
 
 class App extends Component {
   constructor() {
@@ -49,6 +50,7 @@ class App extends Component {
           <Route path="/welcome" exact render={() => <WelcomePage isLoggedIn={this.state.isLoggedIn} user={this.state.user} resetAllState={this.resetAllState}/>} />
           <Route path="/classpage/:classId" exact render={(props) => <ClassPage {...props} isLoggedIn={this.state.isLoggedIn} user={this.state.user} resetAllState={this.resetAllState}/>} />
           <Route path="/viewpost/:postId" exact render={(props) => <ViewPostPage {...props} isLoggedIn={this.state.isLoggedIn} user={this.state.user} resetAllState={this.resetAllState}/>} />
+          <Route path="/post" exact render={(props) => <CreatePostPage {...props} isLoggedIn={this.state.isLoggedIn} user={this.state.user} resetAllState={this.resetAllState}/>} />
 
 
         </div>
@@ -64,3 +66,4 @@ export default App;
 // npm install --save react-router-dom
 // npm install --save react-router-dom
 // npm install react-bootstrap bootstrap
+// npm install react-datepicker --save
