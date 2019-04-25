@@ -1,0 +1,25 @@
+.TitlePage {
+  font-size: 60px;
+  font-family: "Times New Roman";
+  text-align: center;
+  color: #21285c;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 1rem;
+}
+
+.userPicture {
+  margin-bottom: 0.5rem;
+}
+
+.headerInWelcomePage {
+  position:center;
+  color: white;
+  font-size: 35px;
+  text-align: center; 
+  background-color: #21285c;
+  padding: 0px;
+}

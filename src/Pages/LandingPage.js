@@ -7,6 +7,7 @@ import Navbar from "../Components/Navbar.js";
 import Login from "../Components/Login.js";
 import Register from "../Components/Register.js";
 import Footer from "../Components/Footer.js";
+import RecentSubmission from "../Components/RecentSubmission.js";
 
 class LandingPage extends Component {
 	constructor(props) {
@@ -49,6 +50,7 @@ class LandingPage extends Component {
           	/>
           	)
           }
+          <RecentSubmission />
           <Footer isLoggedIn={this.props.isLoggedIn} />
 				</div>
 			</div>

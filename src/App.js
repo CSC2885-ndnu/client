@@ -9,6 +9,7 @@ import WelcomePage from "./Pages/WelcomePage.js";
 import ClassPage from "./Pages/ClassPage.js";
 import ViewPostPage from "./Pages/ViewPostPage.js";
 import CreatePostPage from "./Pages/CreatePostPage.js";
+import MyAccountPage from "./Pages/MyAccountPage.js";
 
 class App extends Component {
   constructor() {
@@ -48,6 +49,7 @@ class App extends Component {
           <Route path="/contactus" exact render={() => <ContactUsPage isLoggedIn={this.state.isLoggedIn} user={this.state.user} resetAllState={this.resetAllState}/>} />
           <Route path="/privacy" exact render={() => <PrivacyPage isLoggedIn={this.state.isLoggedIn} user={this.state.user} resetAllState={this.resetAllState}/>} />
           <Route path="/welcome" exact render={() => <WelcomePage isLoggedIn={this.state.isLoggedIn} user={this.state.user} resetAllState={this.resetAllState}/>} />
+          <Route path="/myAccount" exact render={() => <MyAccountPage isLoggedIn={this.state.isLoggedIn} user={this.state.user} resetAllState={this.resetAllState}/>} />
           <Route path="/classpage/:classId" exact render={(props) => <ClassPage {...props} isLoggedIn={this.state.isLoggedIn} user={this.state.user} resetAllState={this.resetAllState}/>} />
           <Route path="/viewpost/:postId" exact render={(props) => <ViewPostPage {...props} isLoggedIn={this.state.isLoggedIn} user={this.state.user} resetAllState={this.resetAllState}/>} />
           <Route path="/post" exact render={(props) => <CreatePostPage {...props} isLoggedIn={this.state.isLoggedIn} user={this.state.user} resetAllState={this.resetAllState}/>} />
@@ -67,3 +69,5 @@ export default App;
 // npm install --save react-router-dom
 // npm install react-bootstrap bootstrap
 // npm install react-datepicker --save
+// npm install react-bootstrap-table-next --save
+// npm install react-table
