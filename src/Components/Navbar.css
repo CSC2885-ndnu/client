@@ -12,11 +12,10 @@
 }
 
 .nav-nav {
-  display: flex;
-  padding-left: 300;
   margin-bottom: 0;
 }
 
 .navbar .Logo {
-  width: 73%;
+  display: flex;
+  width: 80%;
 }
